@@ -3,7 +3,7 @@
 #
 
 name: 'edfi_resources_sdk'
-version: '7.3'
+version: '1.0.0'
 description: 'OpenAPI API client'
 homepage: 'homepage'
 environment:
