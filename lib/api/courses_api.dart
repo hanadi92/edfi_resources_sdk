@@ -1,0 +1,1129 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.18
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
+
+
+class CoursesApi {
+  CoursesApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+
+  final ApiClient apiClient;
+
+  /// Deletes an existing resource using the resource identifier.
+  ///
+  /// The DELETE operation is used to delete an existing resource by identifier. If the resource doesn't exist, an error will result (the resource will not be found).
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   A resource identifier that uniquely identifies the resource.
+  ///
+  /// * [String] ifMatch:
+  ///   The ETag header value used to prevent the DELETE from removing a resource modified by another consumer.
+  Future<Response> deleteCourseByIdWithHttpInfo(String id, { String? ifMatch, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/ed-fi/courses/{id}'
+      .replaceAll('{id}', id);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (ifMatch != null) {
+      headerParams[r'If-Match'] = parameterToString(ifMatch);
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'DELETE',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Deletes an existing resource using the resource identifier.
+  ///
+  /// The DELETE operation is used to delete an existing resource by identifier. If the resource doesn't exist, an error will result (the resource will not be found).
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   A resource identifier that uniquely identifies the resource.
+  ///
+  /// * [String] ifMatch:
+  ///   The ETag header value used to prevent the DELETE from removing a resource modified by another consumer.
+  Future<void> deleteCourseById(String id, { String? ifMatch, }) async {
+    final response = await deleteCourseByIdWithHttpInfo(id,  ifMatch: ifMatch, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
+  /// Retrieves deleted resources based on change version.
+  ///
+  /// This operation is used to retrieve identifying information about resources that have been deleted.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] offset:
+  ///   Indicates how many items should be skipped before returning results.
+  ///
+  /// * [int] limit:
+  ///   Indicates the maximum number of items that should be returned in the results.
+  ///
+  /// * [int] minChangeVersion:
+  ///   Used in synchronization to set sequence minimum ChangeVersion
+  ///
+  /// * [int] maxChangeVersion:
+  ///   Used in synchronization to set sequence maximum ChangeVersion
+  ///
+  /// * [bool] totalCount:
+  ///   Indicates if the total number of items available should be returned in the 'Total-Count' header of the response.  If set to false, 'Total-Count' header will not be provided. Must be false when using cursor paging (with pageToken).
+  ///
+  /// * [bool] useSnapshot:
+  ///   Indicates if the configured Snapshot should be used.
+  Future<Response> deletesCoursesWithHttpInfo({ int? offset, int? limit, int? minChangeVersion, int? maxChangeVersion, bool? totalCount, bool? useSnapshot, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/ed-fi/courses/deletes';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (offset != null) {
+      queryParams.addAll(_queryParams('', 'offset', offset));
+    }
+    if (limit != null) {
+      queryParams.addAll(_queryParams('', 'limit', limit));
+    }
+    if (minChangeVersion != null) {
+      queryParams.addAll(_queryParams('', 'minChangeVersion', minChangeVersion));
+    }
+    if (maxChangeVersion != null) {
+      queryParams.addAll(_queryParams('', 'maxChangeVersion', maxChangeVersion));
+    }
+    if (totalCount != null) {
+      queryParams.addAll(_queryParams('', 'totalCount', totalCount));
+    }
+
+    if (useSnapshot != null) {
+      headerParams[r'Use-Snapshot'] = parameterToString(useSnapshot);
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Retrieves deleted resources based on change version.
+  ///
+  /// This operation is used to retrieve identifying information about resources that have been deleted.
+  ///
+  /// Parameters:
+  ///
+  /// * [int] offset:
+  ///   Indicates how many items should be skipped before returning results.
+  ///
+  /// * [int] limit:
+  ///   Indicates the maximum number of items that should be returned in the results.
+  ///
+  /// * [int] minChangeVersion:
+  ///   Used in synchronization to set sequence minimum ChangeVersion
+  ///
+  /// * [int] maxChangeVersion:
+  ///   Used in synchronization to set sequence maximum ChangeVersion
+  ///
+  /// * [bool] totalCount:
+  ///   Indicates if the total number of items available should be returned in the 'Total-Count' header of the response.  If set to false, 'Total-Count' header will not be provided. Must be false when using cursor paging (with pageToken).
+  ///
+  /// * [bool] useSnapshot:
+  ///   Indicates if the configured Snapshot should be used.
+  Future<List<TrackedChangesEdFiCourseDelete>?> deletesCourses({ int? offset, int? limit, int? minChangeVersion, int? maxChangeVersion, bool? totalCount, bool? useSnapshot, }) async {
+    final response = await deletesCoursesWithHttpInfo( offset: offset, limit: limit, minChangeVersion: minChangeVersion, maxChangeVersion: maxChangeVersion, totalCount: totalCount, useSnapshot: useSnapshot, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<TrackedChangesEdFiCourseDelete>') as List)
+        .cast<TrackedChangesEdFiCourseDelete>()
+        .toList(growable: false);
+
+    }
+    return null;
+  }
+
+  /// Retrieves specific resources using the resource's property values (using the \"Get\" pattern).
+  ///
+  /// This GET operation provides access to resources using the \"Get\" search pattern.  The values of any properties of the resource that are specified will be used to return all matching results (if it exists).
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] offset:
+  ///   Indicates how many items should be skipped before returning results.
+  ///
+  /// * [int] limit:
+  ///   Indicates the maximum number of items that should be returned in the results.
+  ///
+  /// * [String] pageToken:
+  ///   The token of the page to retrieve, obtained either from the \"Next-Page-Token\" header of the previous request, or from the \"partitions\" endpoint for the resource. Cannot be used with limit/offset paging.
+  ///
+  /// * [int] pageSize:
+  ///   The maximum number of items to retrieve in the page. For use with pageToken (cursor paging) only.
+  ///
+  /// * [int] minChangeVersion:
+  ///   Used in synchronization to set sequence minimum ChangeVersion
+  ///
+  /// * [int] maxChangeVersion:
+  ///   Used in synchronization to set sequence maximum ChangeVersion
+  ///
+  /// * [bool] totalCount:
+  ///   Indicates if the total number of items available should be returned in the 'Total-Count' header of the response.  If set to false, 'Total-Count' header will not be provided. Must be false when using cursor paging (with pageToken).
+  ///
+  /// * [String] courseCode:
+  ///   A unique alphanumeric code assigned to a course.
+  ///
+  /// * [int] educationOrganizationId:
+  ///   The identifier assigned to an education organization.
+  ///
+  /// * [String] careerPathwayDescriptor:
+  ///   Indicates the career cluster or pathway the course is associated with as part of a CTE curriculum.
+  ///
+  /// * [String] courseDefinedByDescriptor:
+  ///   Specifies whether the course was defined by the SEA, LEA, School, or national organization.
+  ///
+  /// * [String] courseGPAApplicabilityDescriptor:
+  ///   An indicator of whether or not the course being described is included in the computation of the student's grade point average, and if so, if it is weighted differently from regular courses.
+  ///
+  /// * [String] minimumAvailableCreditTypeDescriptor:
+  ///   The type of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [String] maximumAvailableCreditTypeDescriptor:
+  ///   The type of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [String] courseDescription:
+  ///   A description of the content standards and goals covered in the course. Reference may be made to state or national content standards.
+  ///
+  /// * [String] courseTitle:
+  ///   The descriptive name given to a course of study offered in a school or other institution or organization. In departmentalized classes at the elementary, secondary, and postsecondary levels (and for staff development activities), this refers to the name by which a course is identified (e.g., American History, English III). For elementary and other non-departmentalized classes, it refers to any portion of the instruction for which a grade or report is assigned (e.g., reading, composition, spelling, and language arts).
+  ///
+  /// * [DateTime] dateCourseAdopted:
+  ///   Date the course was adopted by the education agency.
+  ///
+  /// * [bool] highSchoolCourseRequirement:
+  ///   An indication that this course may satisfy high school graduation requirements in the course's subject area.
+  ///
+  /// * [String] id:
+  ///   
+  ///
+  /// * [int] maxCompletionsForCredit:
+  ///   Designates how many times the course may be taken with credit received by the student.
+  ///
+  /// * [double] maximumAvailableCreditConversion:
+  ///   Conversion factor that when multiplied by the number of credits is equivalent to Carnegie units.
+  ///
+  /// * [double] maximumAvailableCredits:
+  ///   The value of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [double] minimumAvailableCreditConversion:
+  ///   Conversion factor that when multiplied by the number of credits is equivalent to Carnegie units.
+  ///
+  /// * [double] minimumAvailableCredits:
+  ///   The value of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [int] numberOfParts:
+  ///   The number of parts identified for a course.
+  ///
+  /// * [int] timeRequiredForCompletion:
+  ///   The actual or estimated number of clock minutes required for class completion. This number is especially important for career and technical education classes and may represent (in minutes) the clock hour requirement of the class.
+  ///
+  /// * [bool] useSnapshot:
+  ///   Indicates if the configured Snapshot should be used.
+  ///
+  /// * [String] courseIdentificationSystemDescriptor:
+  ///   A system that is used to identify the organization of subject matter and related learning experiences provided for the instruction of students.
+  ///
+  /// * [String] assigningOrganizationIdentificationCode:
+  ///   The organization code or name assigning the Identification Code.
+  ///
+  /// * [String] courseCatalogURL:
+  ///   The URL for the course catalog that defines the course identification code.
+  ///
+  /// * [String] identificationCode:
+  ///   A unique number or alphanumeric code assigned to a course by a school, school system, state, or other agency or entity. For multi-part course codes, concatenate the parts separated by a \"/\". For example, consider the following SCED code-    subject = 20 Math    course = 272 Geometry    level = G General    credits = 1.00   course sequence 1 of 1- would be entered as 20/272/G/1.00/1 of 1.
+  Future<Response> getCoursesWithHttpInfo({ int? offset, int? limit, String? pageToken, int? pageSize, int? minChangeVersion, int? maxChangeVersion, bool? totalCount, String? courseCode, int? educationOrganizationId, String? careerPathwayDescriptor, String? courseDefinedByDescriptor, String? courseGPAApplicabilityDescriptor, String? minimumAvailableCreditTypeDescriptor, String? maximumAvailableCreditTypeDescriptor, String? courseDescription, String? courseTitle, DateTime? dateCourseAdopted, bool? highSchoolCourseRequirement, String? id, int? maxCompletionsForCredit, double? maximumAvailableCreditConversion, double? maximumAvailableCredits, double? minimumAvailableCreditConversion, double? minimumAvailableCredits, int? numberOfParts, int? timeRequiredForCompletion, bool? useSnapshot, String? courseIdentificationSystemDescriptor, String? assigningOrganizationIdentificationCode, String? courseCatalogURL, String? identificationCode, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/ed-fi/courses';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (offset != null) {
+      queryParams.addAll(_queryParams('', 'offset', offset));
+    }
+    if (limit != null) {
+      queryParams.addAll(_queryParams('', 'limit', limit));
+    }
+    if (pageToken != null) {
+      queryParams.addAll(_queryParams('', 'pageToken', pageToken));
+    }
+    if (pageSize != null) {
+      queryParams.addAll(_queryParams('', 'pageSize', pageSize));
+    }
+    if (minChangeVersion != null) {
+      queryParams.addAll(_queryParams('', 'minChangeVersion', minChangeVersion));
+    }
+    if (maxChangeVersion != null) {
+      queryParams.addAll(_queryParams('', 'maxChangeVersion', maxChangeVersion));
+    }
+    if (totalCount != null) {
+      queryParams.addAll(_queryParams('', 'totalCount', totalCount));
+    }
+    if (courseCode != null) {
+      queryParams.addAll(_queryParams('', 'courseCode', courseCode));
+    }
+    if (educationOrganizationId != null) {
+      queryParams.addAll(_queryParams('', 'educationOrganizationId', educationOrganizationId));
+    }
+    if (careerPathwayDescriptor != null) {
+      queryParams.addAll(_queryParams('', 'careerPathwayDescriptor', careerPathwayDescriptor));
+    }
+    if (courseDefinedByDescriptor != null) {
+      queryParams.addAll(_queryParams('', 'courseDefinedByDescriptor', courseDefinedByDescriptor));
+    }
+    if (courseGPAApplicabilityDescriptor != null) {
+      queryParams.addAll(_queryParams('', 'courseGPAApplicabilityDescriptor', courseGPAApplicabilityDescriptor));
+    }
+    if (minimumAvailableCreditTypeDescriptor != null) {
+      queryParams.addAll(_queryParams('', 'minimumAvailableCreditTypeDescriptor', minimumAvailableCreditTypeDescriptor));
+    }
+    if (maximumAvailableCreditTypeDescriptor != null) {
+      queryParams.addAll(_queryParams('', 'maximumAvailableCreditTypeDescriptor', maximumAvailableCreditTypeDescriptor));
+    }
+    if (courseDescription != null) {
+      queryParams.addAll(_queryParams('', 'courseDescription', courseDescription));
+    }
+    if (courseTitle != null) {
+      queryParams.addAll(_queryParams('', 'courseTitle', courseTitle));
+    }
+    if (dateCourseAdopted != null) {
+      queryParams.addAll(_queryParams('', 'dateCourseAdopted', dateCourseAdopted));
+    }
+    if (highSchoolCourseRequirement != null) {
+      queryParams.addAll(_queryParams('', 'highSchoolCourseRequirement', highSchoolCourseRequirement));
+    }
+    if (id != null) {
+      queryParams.addAll(_queryParams('', 'id', id));
+    }
+    if (maxCompletionsForCredit != null) {
+      queryParams.addAll(_queryParams('', 'maxCompletionsForCredit', maxCompletionsForCredit));
+    }
+    if (maximumAvailableCreditConversion != null) {
+      queryParams.addAll(_queryParams('', 'maximumAvailableCreditConversion', maximumAvailableCreditConversion));
+    }
+    if (maximumAvailableCredits != null) {
+      queryParams.addAll(_queryParams('', 'maximumAvailableCredits', maximumAvailableCredits));
+    }
+    if (minimumAvailableCreditConversion != null) {
+      queryParams.addAll(_queryParams('', 'minimumAvailableCreditConversion', minimumAvailableCreditConversion));
+    }
+    if (minimumAvailableCredits != null) {
+      queryParams.addAll(_queryParams('', 'minimumAvailableCredits', minimumAvailableCredits));
+    }
+    if (numberOfParts != null) {
+      queryParams.addAll(_queryParams('', 'numberOfParts', numberOfParts));
+    }
+    if (timeRequiredForCompletion != null) {
+      queryParams.addAll(_queryParams('', 'timeRequiredForCompletion', timeRequiredForCompletion));
+    }
+    if (courseIdentificationSystemDescriptor != null) {
+      queryParams.addAll(_queryParams('', 'courseIdentificationSystemDescriptor', courseIdentificationSystemDescriptor));
+    }
+    if (assigningOrganizationIdentificationCode != null) {
+      queryParams.addAll(_queryParams('', 'assigningOrganizationIdentificationCode', assigningOrganizationIdentificationCode));
+    }
+    if (courseCatalogURL != null) {
+      queryParams.addAll(_queryParams('', 'courseCatalogURL', courseCatalogURL));
+    }
+    if (identificationCode != null) {
+      queryParams.addAll(_queryParams('', 'identificationCode', identificationCode));
+    }
+
+    if (useSnapshot != null) {
+      headerParams[r'Use-Snapshot'] = parameterToString(useSnapshot);
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Retrieves specific resources using the resource's property values (using the \"Get\" pattern).
+  ///
+  /// This GET operation provides access to resources using the \"Get\" search pattern.  The values of any properties of the resource that are specified will be used to return all matching results (if it exists).
+  ///
+  /// Parameters:
+  ///
+  /// * [int] offset:
+  ///   Indicates how many items should be skipped before returning results.
+  ///
+  /// * [int] limit:
+  ///   Indicates the maximum number of items that should be returned in the results.
+  ///
+  /// * [String] pageToken:
+  ///   The token of the page to retrieve, obtained either from the \"Next-Page-Token\" header of the previous request, or from the \"partitions\" endpoint for the resource. Cannot be used with limit/offset paging.
+  ///
+  /// * [int] pageSize:
+  ///   The maximum number of items to retrieve in the page. For use with pageToken (cursor paging) only.
+  ///
+  /// * [int] minChangeVersion:
+  ///   Used in synchronization to set sequence minimum ChangeVersion
+  ///
+  /// * [int] maxChangeVersion:
+  ///   Used in synchronization to set sequence maximum ChangeVersion
+  ///
+  /// * [bool] totalCount:
+  ///   Indicates if the total number of items available should be returned in the 'Total-Count' header of the response.  If set to false, 'Total-Count' header will not be provided. Must be false when using cursor paging (with pageToken).
+  ///
+  /// * [String] courseCode:
+  ///   A unique alphanumeric code assigned to a course.
+  ///
+  /// * [int] educationOrganizationId:
+  ///   The identifier assigned to an education organization.
+  ///
+  /// * [String] careerPathwayDescriptor:
+  ///   Indicates the career cluster or pathway the course is associated with as part of a CTE curriculum.
+  ///
+  /// * [String] courseDefinedByDescriptor:
+  ///   Specifies whether the course was defined by the SEA, LEA, School, or national organization.
+  ///
+  /// * [String] courseGPAApplicabilityDescriptor:
+  ///   An indicator of whether or not the course being described is included in the computation of the student's grade point average, and if so, if it is weighted differently from regular courses.
+  ///
+  /// * [String] minimumAvailableCreditTypeDescriptor:
+  ///   The type of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [String] maximumAvailableCreditTypeDescriptor:
+  ///   The type of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [String] courseDescription:
+  ///   A description of the content standards and goals covered in the course. Reference may be made to state or national content standards.
+  ///
+  /// * [String] courseTitle:
+  ///   The descriptive name given to a course of study offered in a school or other institution or organization. In departmentalized classes at the elementary, secondary, and postsecondary levels (and for staff development activities), this refers to the name by which a course is identified (e.g., American History, English III). For elementary and other non-departmentalized classes, it refers to any portion of the instruction for which a grade or report is assigned (e.g., reading, composition, spelling, and language arts).
+  ///
+  /// * [DateTime] dateCourseAdopted:
+  ///   Date the course was adopted by the education agency.
+  ///
+  /// * [bool] highSchoolCourseRequirement:
+  ///   An indication that this course may satisfy high school graduation requirements in the course's subject area.
+  ///
+  /// * [String] id:
+  ///   
+  ///
+  /// * [int] maxCompletionsForCredit:
+  ///   Designates how many times the course may be taken with credit received by the student.
+  ///
+  /// * [double] maximumAvailableCreditConversion:
+  ///   Conversion factor that when multiplied by the number of credits is equivalent to Carnegie units.
+  ///
+  /// * [double] maximumAvailableCredits:
+  ///   The value of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [double] minimumAvailableCreditConversion:
+  ///   Conversion factor that when multiplied by the number of credits is equivalent to Carnegie units.
+  ///
+  /// * [double] minimumAvailableCredits:
+  ///   The value of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [int] numberOfParts:
+  ///   The number of parts identified for a course.
+  ///
+  /// * [int] timeRequiredForCompletion:
+  ///   The actual or estimated number of clock minutes required for class completion. This number is especially important for career and technical education classes and may represent (in minutes) the clock hour requirement of the class.
+  ///
+  /// * [bool] useSnapshot:
+  ///   Indicates if the configured Snapshot should be used.
+  ///
+  /// * [String] courseIdentificationSystemDescriptor:
+  ///   A system that is used to identify the organization of subject matter and related learning experiences provided for the instruction of students.
+  ///
+  /// * [String] assigningOrganizationIdentificationCode:
+  ///   The organization code or name assigning the Identification Code.
+  ///
+  /// * [String] courseCatalogURL:
+  ///   The URL for the course catalog that defines the course identification code.
+  ///
+  /// * [String] identificationCode:
+  ///   A unique number or alphanumeric code assigned to a course by a school, school system, state, or other agency or entity. For multi-part course codes, concatenate the parts separated by a \"/\". For example, consider the following SCED code-    subject = 20 Math    course = 272 Geometry    level = G General    credits = 1.00   course sequence 1 of 1- would be entered as 20/272/G/1.00/1 of 1.
+  Future<List<EdFiCourse>?> getCourses({ int? offset, int? limit, String? pageToken, int? pageSize, int? minChangeVersion, int? maxChangeVersion, bool? totalCount, String? courseCode, int? educationOrganizationId, String? careerPathwayDescriptor, String? courseDefinedByDescriptor, String? courseGPAApplicabilityDescriptor, String? minimumAvailableCreditTypeDescriptor, String? maximumAvailableCreditTypeDescriptor, String? courseDescription, String? courseTitle, DateTime? dateCourseAdopted, bool? highSchoolCourseRequirement, String? id, int? maxCompletionsForCredit, double? maximumAvailableCreditConversion, double? maximumAvailableCredits, double? minimumAvailableCreditConversion, double? minimumAvailableCredits, int? numberOfParts, int? timeRequiredForCompletion, bool? useSnapshot, String? courseIdentificationSystemDescriptor, String? assigningOrganizationIdentificationCode, String? courseCatalogURL, String? identificationCode, }) async {
+    final response = await getCoursesWithHttpInfo( offset: offset, limit: limit, pageToken: pageToken, pageSize: pageSize, minChangeVersion: minChangeVersion, maxChangeVersion: maxChangeVersion, totalCount: totalCount, courseCode: courseCode, educationOrganizationId: educationOrganizationId, careerPathwayDescriptor: careerPathwayDescriptor, courseDefinedByDescriptor: courseDefinedByDescriptor, courseGPAApplicabilityDescriptor: courseGPAApplicabilityDescriptor, minimumAvailableCreditTypeDescriptor: minimumAvailableCreditTypeDescriptor, maximumAvailableCreditTypeDescriptor: maximumAvailableCreditTypeDescriptor, courseDescription: courseDescription, courseTitle: courseTitle, dateCourseAdopted: dateCourseAdopted, highSchoolCourseRequirement: highSchoolCourseRequirement, id: id, maxCompletionsForCredit: maxCompletionsForCredit, maximumAvailableCreditConversion: maximumAvailableCreditConversion, maximumAvailableCredits: maximumAvailableCredits, minimumAvailableCreditConversion: minimumAvailableCreditConversion, minimumAvailableCredits: minimumAvailableCredits, numberOfParts: numberOfParts, timeRequiredForCompletion: timeRequiredForCompletion, useSnapshot: useSnapshot, courseIdentificationSystemDescriptor: courseIdentificationSystemDescriptor, assigningOrganizationIdentificationCode: assigningOrganizationIdentificationCode, courseCatalogURL: courseCatalogURL, identificationCode: identificationCode, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<EdFiCourse>') as List)
+        .cast<EdFiCourse>()
+        .toList(growable: false);
+
+    }
+    return null;
+  }
+
+  /// Retrieves a specific resource using the resource's identifier (using the \"Get By Id\" pattern).
+  ///
+  /// This GET operation retrieves a resource by the specified resource identifier.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   A resource identifier that uniquely identifies the resource.
+  ///
+  /// * [String] ifNoneMatch:
+  ///   The previously returned ETag header value, used here to prevent the unnecessary data transfer of an unchanged resource.
+  ///
+  /// * [bool] useSnapshot:
+  ///   Indicates if the configured Snapshot should be used.
+  Future<Response> getCoursesByIdWithHttpInfo(String id, { String? ifNoneMatch, bool? useSnapshot, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/ed-fi/courses/{id}'
+      .replaceAll('{id}', id);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (ifNoneMatch != null) {
+      headerParams[r'If-None-Match'] = parameterToString(ifNoneMatch);
+    }
+    if (useSnapshot != null) {
+      headerParams[r'Use-Snapshot'] = parameterToString(useSnapshot);
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Retrieves a specific resource using the resource's identifier (using the \"Get By Id\" pattern).
+  ///
+  /// This GET operation retrieves a resource by the specified resource identifier.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   A resource identifier that uniquely identifies the resource.
+  ///
+  /// * [String] ifNoneMatch:
+  ///   The previously returned ETag header value, used here to prevent the unnecessary data transfer of an unchanged resource.
+  ///
+  /// * [bool] useSnapshot:
+  ///   Indicates if the configured Snapshot should be used.
+  Future<EdFiCourse?> getCoursesById(String id, { String? ifNoneMatch, bool? useSnapshot, }) async {
+    final response = await getCoursesByIdWithHttpInfo(id,  ifNoneMatch: ifNoneMatch, useSnapshot: useSnapshot, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'EdFiCourse',) as EdFiCourse;
+    
+    }
+    return null;
+  }
+
+  /// Retrieves a set of page tokens to be used for efficient client-side parallel processing.
+  ///
+  /// Computes an evenly distributed set of partitions over the accessible data and returns a set of page tokens, each representing the first page of one of the partitions.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] number:
+  ///   The number of evenly distributed partitions to provide for client-side parallel processing. If unspecified, a reasonable set of partitions will be determined based on the total number of accessible items.
+  ///
+  /// * [int] minChangeVersion:
+  ///   Used in synchronization to set sequence minimum ChangeVersion
+  ///
+  /// * [int] maxChangeVersion:
+  ///   Used in synchronization to set sequence maximum ChangeVersion
+  ///
+  /// * [String] courseCode:
+  ///   A unique alphanumeric code assigned to a course.
+  ///
+  /// * [int] educationOrganizationId:
+  ///   The identifier assigned to an education organization.
+  ///
+  /// * [String] careerPathwayDescriptor:
+  ///   Indicates the career cluster or pathway the course is associated with as part of a CTE curriculum.
+  ///
+  /// * [String] courseDefinedByDescriptor:
+  ///   Specifies whether the course was defined by the SEA, LEA, School, or national organization.
+  ///
+  /// * [String] courseGPAApplicabilityDescriptor:
+  ///   An indicator of whether or not the course being described is included in the computation of the student's grade point average, and if so, if it is weighted differently from regular courses.
+  ///
+  /// * [String] minimumAvailableCreditTypeDescriptor:
+  ///   The type of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [String] maximumAvailableCreditTypeDescriptor:
+  ///   The type of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [String] courseDescription:
+  ///   A description of the content standards and goals covered in the course. Reference may be made to state or national content standards.
+  ///
+  /// * [String] courseTitle:
+  ///   The descriptive name given to a course of study offered in a school or other institution or organization. In departmentalized classes at the elementary, secondary, and postsecondary levels (and for staff development activities), this refers to the name by which a course is identified (e.g., American History, English III). For elementary and other non-departmentalized classes, it refers to any portion of the instruction for which a grade or report is assigned (e.g., reading, composition, spelling, and language arts).
+  ///
+  /// * [DateTime] dateCourseAdopted:
+  ///   Date the course was adopted by the education agency.
+  ///
+  /// * [bool] highSchoolCourseRequirement:
+  ///   An indication that this course may satisfy high school graduation requirements in the course's subject area.
+  ///
+  /// * [String] id:
+  ///   
+  ///
+  /// * [int] maxCompletionsForCredit:
+  ///   Designates how many times the course may be taken with credit received by the student.
+  ///
+  /// * [double] maximumAvailableCreditConversion:
+  ///   Conversion factor that when multiplied by the number of credits is equivalent to Carnegie units.
+  ///
+  /// * [double] maximumAvailableCredits:
+  ///   The value of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [double] minimumAvailableCreditConversion:
+  ///   Conversion factor that when multiplied by the number of credits is equivalent to Carnegie units.
+  ///
+  /// * [double] minimumAvailableCredits:
+  ///   The value of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [int] numberOfParts:
+  ///   The number of parts identified for a course.
+  ///
+  /// * [int] timeRequiredForCompletion:
+  ///   The actual or estimated number of clock minutes required for class completion. This number is especially important for career and technical education classes and may represent (in minutes) the clock hour requirement of the class.
+  ///
+  /// * [bool] useSnapshot:
+  ///   Indicates if the configured Snapshot should be used.
+  ///
+  /// * [String] courseIdentificationSystemDescriptor:
+  ///   A system that is used to identify the organization of subject matter and related learning experiences provided for the instruction of students.
+  ///
+  /// * [String] assigningOrganizationIdentificationCode:
+  ///   The organization code or name assigning the Identification Code.
+  ///
+  /// * [String] courseCatalogURL:
+  ///   The URL for the course catalog that defines the course identification code.
+  ///
+  /// * [String] identificationCode:
+  ///   A unique number or alphanumeric code assigned to a course by a school, school system, state, or other agency or entity. For multi-part course codes, concatenate the parts separated by a \"/\". For example, consider the following SCED code-    subject = 20 Math    course = 272 Geometry    level = G General    credits = 1.00   course sequence 1 of 1- would be entered as 20/272/G/1.00/1 of 1.
+  Future<Response> getCoursesPartitionsWithHttpInfo({ int? number, int? minChangeVersion, int? maxChangeVersion, String? courseCode, int? educationOrganizationId, String? careerPathwayDescriptor, String? courseDefinedByDescriptor, String? courseGPAApplicabilityDescriptor, String? minimumAvailableCreditTypeDescriptor, String? maximumAvailableCreditTypeDescriptor, String? courseDescription, String? courseTitle, DateTime? dateCourseAdopted, bool? highSchoolCourseRequirement, String? id, int? maxCompletionsForCredit, double? maximumAvailableCreditConversion, double? maximumAvailableCredits, double? minimumAvailableCreditConversion, double? minimumAvailableCredits, int? numberOfParts, int? timeRequiredForCompletion, bool? useSnapshot, String? courseIdentificationSystemDescriptor, String? assigningOrganizationIdentificationCode, String? courseCatalogURL, String? identificationCode, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/ed-fi/courses/partitions';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (number != null) {
+      queryParams.addAll(_queryParams('', 'number', number));
+    }
+    if (minChangeVersion != null) {
+      queryParams.addAll(_queryParams('', 'minChangeVersion', minChangeVersion));
+    }
+    if (maxChangeVersion != null) {
+      queryParams.addAll(_queryParams('', 'maxChangeVersion', maxChangeVersion));
+    }
+    if (courseCode != null) {
+      queryParams.addAll(_queryParams('', 'courseCode', courseCode));
+    }
+    if (educationOrganizationId != null) {
+      queryParams.addAll(_queryParams('', 'educationOrganizationId', educationOrganizationId));
+    }
+    if (careerPathwayDescriptor != null) {
+      queryParams.addAll(_queryParams('', 'careerPathwayDescriptor', careerPathwayDescriptor));
+    }
+    if (courseDefinedByDescriptor != null) {
+      queryParams.addAll(_queryParams('', 'courseDefinedByDescriptor', courseDefinedByDescriptor));
+    }
+    if (courseGPAApplicabilityDescriptor != null) {
+      queryParams.addAll(_queryParams('', 'courseGPAApplicabilityDescriptor', courseGPAApplicabilityDescriptor));
+    }
+    if (minimumAvailableCreditTypeDescriptor != null) {
+      queryParams.addAll(_queryParams('', 'minimumAvailableCreditTypeDescriptor', minimumAvailableCreditTypeDescriptor));
+    }
+    if (maximumAvailableCreditTypeDescriptor != null) {
+      queryParams.addAll(_queryParams('', 'maximumAvailableCreditTypeDescriptor', maximumAvailableCreditTypeDescriptor));
+    }
+    if (courseDescription != null) {
+      queryParams.addAll(_queryParams('', 'courseDescription', courseDescription));
+    }
+    if (courseTitle != null) {
+      queryParams.addAll(_queryParams('', 'courseTitle', courseTitle));
+    }
+    if (dateCourseAdopted != null) {
+      queryParams.addAll(_queryParams('', 'dateCourseAdopted', dateCourseAdopted));
+    }
+    if (highSchoolCourseRequirement != null) {
+      queryParams.addAll(_queryParams('', 'highSchoolCourseRequirement', highSchoolCourseRequirement));
+    }
+    if (id != null) {
+      queryParams.addAll(_queryParams('', 'id', id));
+    }
+    if (maxCompletionsForCredit != null) {
+      queryParams.addAll(_queryParams('', 'maxCompletionsForCredit', maxCompletionsForCredit));
+    }
+    if (maximumAvailableCreditConversion != null) {
+      queryParams.addAll(_queryParams('', 'maximumAvailableCreditConversion', maximumAvailableCreditConversion));
+    }
+    if (maximumAvailableCredits != null) {
+      queryParams.addAll(_queryParams('', 'maximumAvailableCredits', maximumAvailableCredits));
+    }
+    if (minimumAvailableCreditConversion != null) {
+      queryParams.addAll(_queryParams('', 'minimumAvailableCreditConversion', minimumAvailableCreditConversion));
+    }
+    if (minimumAvailableCredits != null) {
+      queryParams.addAll(_queryParams('', 'minimumAvailableCredits', minimumAvailableCredits));
+    }
+    if (numberOfParts != null) {
+      queryParams.addAll(_queryParams('', 'numberOfParts', numberOfParts));
+    }
+    if (timeRequiredForCompletion != null) {
+      queryParams.addAll(_queryParams('', 'timeRequiredForCompletion', timeRequiredForCompletion));
+    }
+    if (courseIdentificationSystemDescriptor != null) {
+      queryParams.addAll(_queryParams('', 'courseIdentificationSystemDescriptor', courseIdentificationSystemDescriptor));
+    }
+    if (assigningOrganizationIdentificationCode != null) {
+      queryParams.addAll(_queryParams('', 'assigningOrganizationIdentificationCode', assigningOrganizationIdentificationCode));
+    }
+    if (courseCatalogURL != null) {
+      queryParams.addAll(_queryParams('', 'courseCatalogURL', courseCatalogURL));
+    }
+    if (identificationCode != null) {
+      queryParams.addAll(_queryParams('', 'identificationCode', identificationCode));
+    }
+
+    if (useSnapshot != null) {
+      headerParams[r'Use-Snapshot'] = parameterToString(useSnapshot);
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Retrieves a set of page tokens to be used for efficient client-side parallel processing.
+  ///
+  /// Computes an evenly distributed set of partitions over the accessible data and returns a set of page tokens, each representing the first page of one of the partitions.
+  ///
+  /// Parameters:
+  ///
+  /// * [int] number:
+  ///   The number of evenly distributed partitions to provide for client-side parallel processing. If unspecified, a reasonable set of partitions will be determined based on the total number of accessible items.
+  ///
+  /// * [int] minChangeVersion:
+  ///   Used in synchronization to set sequence minimum ChangeVersion
+  ///
+  /// * [int] maxChangeVersion:
+  ///   Used in synchronization to set sequence maximum ChangeVersion
+  ///
+  /// * [String] courseCode:
+  ///   A unique alphanumeric code assigned to a course.
+  ///
+  /// * [int] educationOrganizationId:
+  ///   The identifier assigned to an education organization.
+  ///
+  /// * [String] careerPathwayDescriptor:
+  ///   Indicates the career cluster or pathway the course is associated with as part of a CTE curriculum.
+  ///
+  /// * [String] courseDefinedByDescriptor:
+  ///   Specifies whether the course was defined by the SEA, LEA, School, or national organization.
+  ///
+  /// * [String] courseGPAApplicabilityDescriptor:
+  ///   An indicator of whether or not the course being described is included in the computation of the student's grade point average, and if so, if it is weighted differently from regular courses.
+  ///
+  /// * [String] minimumAvailableCreditTypeDescriptor:
+  ///   The type of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [String] maximumAvailableCreditTypeDescriptor:
+  ///   The type of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [String] courseDescription:
+  ///   A description of the content standards and goals covered in the course. Reference may be made to state or national content standards.
+  ///
+  /// * [String] courseTitle:
+  ///   The descriptive name given to a course of study offered in a school or other institution or organization. In departmentalized classes at the elementary, secondary, and postsecondary levels (and for staff development activities), this refers to the name by which a course is identified (e.g., American History, English III). For elementary and other non-departmentalized classes, it refers to any portion of the instruction for which a grade or report is assigned (e.g., reading, composition, spelling, and language arts).
+  ///
+  /// * [DateTime] dateCourseAdopted:
+  ///   Date the course was adopted by the education agency.
+  ///
+  /// * [bool] highSchoolCourseRequirement:
+  ///   An indication that this course may satisfy high school graduation requirements in the course's subject area.
+  ///
+  /// * [String] id:
+  ///   
+  ///
+  /// * [int] maxCompletionsForCredit:
+  ///   Designates how many times the course may be taken with credit received by the student.
+  ///
+  /// * [double] maximumAvailableCreditConversion:
+  ///   Conversion factor that when multiplied by the number of credits is equivalent to Carnegie units.
+  ///
+  /// * [double] maximumAvailableCredits:
+  ///   The value of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [double] minimumAvailableCreditConversion:
+  ///   Conversion factor that when multiplied by the number of credits is equivalent to Carnegie units.
+  ///
+  /// * [double] minimumAvailableCredits:
+  ///   The value of credits or units of value awarded for the completion of a course.
+  ///
+  /// * [int] numberOfParts:
+  ///   The number of parts identified for a course.
+  ///
+  /// * [int] timeRequiredForCompletion:
+  ///   The actual or estimated number of clock minutes required for class completion. This number is especially important for career and technical education classes and may represent (in minutes) the clock hour requirement of the class.
+  ///
+  /// * [bool] useSnapshot:
+  ///   Indicates if the configured Snapshot should be used.
+  ///
+  /// * [String] courseIdentificationSystemDescriptor:
+  ///   A system that is used to identify the organization of subject matter and related learning experiences provided for the instruction of students.
+  ///
+  /// * [String] assigningOrganizationIdentificationCode:
+  ///   The organization code or name assigning the Identification Code.
+  ///
+  /// * [String] courseCatalogURL:
+  ///   The URL for the course catalog that defines the course identification code.
+  ///
+  /// * [String] identificationCode:
+  ///   A unique number or alphanumeric code assigned to a course by a school, school system, state, or other agency or entity. For multi-part course codes, concatenate the parts separated by a \"/\". For example, consider the following SCED code-    subject = 20 Math    course = 272 Geometry    level = G General    credits = 1.00   course sequence 1 of 1- would be entered as 20/272/G/1.00/1 of 1.
+  Future<GetAcademicWeeksPartitions200Response?> getCoursesPartitions({ int? number, int? minChangeVersion, int? maxChangeVersion, String? courseCode, int? educationOrganizationId, String? careerPathwayDescriptor, String? courseDefinedByDescriptor, String? courseGPAApplicabilityDescriptor, String? minimumAvailableCreditTypeDescriptor, String? maximumAvailableCreditTypeDescriptor, String? courseDescription, String? courseTitle, DateTime? dateCourseAdopted, bool? highSchoolCourseRequirement, String? id, int? maxCompletionsForCredit, double? maximumAvailableCreditConversion, double? maximumAvailableCredits, double? minimumAvailableCreditConversion, double? minimumAvailableCredits, int? numberOfParts, int? timeRequiredForCompletion, bool? useSnapshot, String? courseIdentificationSystemDescriptor, String? assigningOrganizationIdentificationCode, String? courseCatalogURL, String? identificationCode, }) async {
+    final response = await getCoursesPartitionsWithHttpInfo( number: number, minChangeVersion: minChangeVersion, maxChangeVersion: maxChangeVersion, courseCode: courseCode, educationOrganizationId: educationOrganizationId, careerPathwayDescriptor: careerPathwayDescriptor, courseDefinedByDescriptor: courseDefinedByDescriptor, courseGPAApplicabilityDescriptor: courseGPAApplicabilityDescriptor, minimumAvailableCreditTypeDescriptor: minimumAvailableCreditTypeDescriptor, maximumAvailableCreditTypeDescriptor: maximumAvailableCreditTypeDescriptor, courseDescription: courseDescription, courseTitle: courseTitle, dateCourseAdopted: dateCourseAdopted, highSchoolCourseRequirement: highSchoolCourseRequirement, id: id, maxCompletionsForCredit: maxCompletionsForCredit, maximumAvailableCreditConversion: maximumAvailableCreditConversion, maximumAvailableCredits: maximumAvailableCredits, minimumAvailableCreditConversion: minimumAvailableCreditConversion, minimumAvailableCredits: minimumAvailableCredits, numberOfParts: numberOfParts, timeRequiredForCompletion: timeRequiredForCompletion, useSnapshot: useSnapshot, courseIdentificationSystemDescriptor: courseIdentificationSystemDescriptor, assigningOrganizationIdentificationCode: assigningOrganizationIdentificationCode, courseCatalogURL: courseCatalogURL, identificationCode: identificationCode, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GetAcademicWeeksPartitions200Response',) as GetAcademicWeeksPartitions200Response;
+    
+    }
+    return null;
+  }
+
+  /// Retrieves resources key changes based on change version.
+  ///
+  /// This operation is used to retrieve identifying information about resources whose key values have been changed.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] offset:
+  ///   Indicates how many items should be skipped before returning results.
+  ///
+  /// * [int] limit:
+  ///   Indicates the maximum number of items that should be returned in the results.
+  ///
+  /// * [int] minChangeVersion:
+  ///   Used in synchronization to set sequence minimum ChangeVersion
+  ///
+  /// * [int] maxChangeVersion:
+  ///   Used in synchronization to set sequence maximum ChangeVersion
+  ///
+  /// * [bool] totalCount:
+  ///   Indicates if the total number of items available should be returned in the 'Total-Count' header of the response.  If set to false, 'Total-Count' header will not be provided. Must be false when using cursor paging (with pageToken).
+  ///
+  /// * [bool] useSnapshot:
+  ///   Indicates if the configured Snapshot should be used.
+  Future<Response> keyChangesCoursesWithHttpInfo({ int? offset, int? limit, int? minChangeVersion, int? maxChangeVersion, bool? totalCount, bool? useSnapshot, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/ed-fi/courses/keyChanges';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (offset != null) {
+      queryParams.addAll(_queryParams('', 'offset', offset));
+    }
+    if (limit != null) {
+      queryParams.addAll(_queryParams('', 'limit', limit));
+    }
+    if (minChangeVersion != null) {
+      queryParams.addAll(_queryParams('', 'minChangeVersion', minChangeVersion));
+    }
+    if (maxChangeVersion != null) {
+      queryParams.addAll(_queryParams('', 'maxChangeVersion', maxChangeVersion));
+    }
+    if (totalCount != null) {
+      queryParams.addAll(_queryParams('', 'totalCount', totalCount));
+    }
+
+    if (useSnapshot != null) {
+      headerParams[r'Use-Snapshot'] = parameterToString(useSnapshot);
+    }
+
+    const contentTypes = <String>[];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Retrieves resources key changes based on change version.
+  ///
+  /// This operation is used to retrieve identifying information about resources whose key values have been changed.
+  ///
+  /// Parameters:
+  ///
+  /// * [int] offset:
+  ///   Indicates how many items should be skipped before returning results.
+  ///
+  /// * [int] limit:
+  ///   Indicates the maximum number of items that should be returned in the results.
+  ///
+  /// * [int] minChangeVersion:
+  ///   Used in synchronization to set sequence minimum ChangeVersion
+  ///
+  /// * [int] maxChangeVersion:
+  ///   Used in synchronization to set sequence maximum ChangeVersion
+  ///
+  /// * [bool] totalCount:
+  ///   Indicates if the total number of items available should be returned in the 'Total-Count' header of the response.  If set to false, 'Total-Count' header will not be provided. Must be false when using cursor paging (with pageToken).
+  ///
+  /// * [bool] useSnapshot:
+  ///   Indicates if the configured Snapshot should be used.
+  Future<List<TrackedChangesEdFiCourseKeyChange>?> keyChangesCourses({ int? offset, int? limit, int? minChangeVersion, int? maxChangeVersion, bool? totalCount, bool? useSnapshot, }) async {
+    final response = await keyChangesCoursesWithHttpInfo( offset: offset, limit: limit, minChangeVersion: minChangeVersion, maxChangeVersion: maxChangeVersion, totalCount: totalCount, useSnapshot: useSnapshot, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      final responseBody = await _decodeBodyBytes(response);
+      return (await apiClient.deserializeAsync(responseBody, 'List<TrackedChangesEdFiCourseKeyChange>') as List)
+        .cast<TrackedChangesEdFiCourseKeyChange>()
+        .toList(growable: false);
+
+    }
+    return null;
+  }
+
+  /// Creates or updates resources based on the natural key values of the supplied resource.
+  ///
+  /// The POST operation can be used to create or update resources. In database terms, this is often referred to as an \"upsert\" operation (insert + update). Clients should NOT include the resource \"id\" in the JSON body because it will result in an error. The web service will identify whether the resource already exists based on the natural key values provided, and update or create the resource appropriately. It is recommended to use POST for both create and update except while updating natural key of a resource in which case PUT operation must be used.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [EdFiCourse] edFiCourse (required):
+  ///   The JSON representation of the \"course\" resource to be created or updated.
+  Future<Response> postCourseWithHttpInfo(EdFiCourse edFiCourse,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/ed-fi/courses';
+
+    // ignore: prefer_final_locals
+    Object? postBody = edFiCourse;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Creates or updates resources based on the natural key values of the supplied resource.
+  ///
+  /// The POST operation can be used to create or update resources. In database terms, this is often referred to as an \"upsert\" operation (insert + update). Clients should NOT include the resource \"id\" in the JSON body because it will result in an error. The web service will identify whether the resource already exists based on the natural key values provided, and update or create the resource appropriately. It is recommended to use POST for both create and update except while updating natural key of a resource in which case PUT operation must be used.
+  ///
+  /// Parameters:
+  ///
+  /// * [EdFiCourse] edFiCourse (required):
+  ///   The JSON representation of the \"course\" resource to be created or updated.
+  Future<void> postCourse(EdFiCourse edFiCourse,) async {
+    final response = await postCourseWithHttpInfo(edFiCourse,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+
+  /// Updates a resource based on the resource identifier.
+  ///
+  /// The PUT operation is used to update a resource by identifier. If the resource identifier (\"id\") is provided in the JSON body, it will be ignored. Additionally, this API resource is not configured for cascading natural key updates. Natural key values for this resource cannot be changed using PUT operation, so the recommendation is to use POST as that supports upsert behavior.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   A resource identifier that uniquely identifies the resource.
+  ///
+  /// * [EdFiCourse] edFiCourse (required):
+  ///   The JSON representation of the \"course\" resource to be created or updated.
+  ///
+  /// * [String] ifMatch:
+  ///   The ETag header value used to prevent the PUT from updating a resource modified by another consumer.
+  Future<Response> putCourseWithHttpInfo(String id, EdFiCourse edFiCourse, { String? ifMatch, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/ed-fi/courses/{id}'
+      .replaceAll('{id}', id);
+
+    // ignore: prefer_final_locals
+    Object? postBody = edFiCourse;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (ifMatch != null) {
+      headerParams[r'If-Match'] = parameterToString(ifMatch);
+    }
+
+    const contentTypes = <String>['application/json'];
+
+
+    return apiClient.invokeAPI(
+      path,
+      'PUT',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Updates a resource based on the resource identifier.
+  ///
+  /// The PUT operation is used to update a resource by identifier. If the resource identifier (\"id\") is provided in the JSON body, it will be ignored. Additionally, this API resource is not configured for cascading natural key updates. Natural key values for this resource cannot be changed using PUT operation, so the recommendation is to use POST as that supports upsert behavior.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id (required):
+  ///   A resource identifier that uniquely identifies the resource.
+  ///
+  /// * [EdFiCourse] edFiCourse (required):
+  ///   The JSON representation of the \"course\" resource to be created or updated.
+  ///
+  /// * [String] ifMatch:
+  ///   The ETag header value used to prevent the PUT from updating a resource modified by another consumer.
+  Future<void> putCourse(String id, EdFiCourse edFiCourse, { String? ifMatch, }) async {
+    final response = await putCourseWithHttpInfo(id, edFiCourse,  ifMatch: ifMatch, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+  }
+}

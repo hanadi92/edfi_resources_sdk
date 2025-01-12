@@ -1,0 +1,153 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.18
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: lines_longer_than_80_chars
+
+import 'package:edfi_resources_sdk/api.dart';
+import 'package:test/test.dart';
+
+// tests for EdFiIntervention
+void main() {
+  // final instance = EdFiIntervention();
+
+  group('test EdFiIntervention', () {
+    // 
+    // String id
+    test('to test the property `id`', () async {
+      // TODO
+    });
+
+    // A unique number or alphanumeric code assigned to an intervention.
+    // String interventionIdentificationCode
+    test('to test the property `interventionIdentificationCode`', () async {
+      // TODO
+    });
+
+    // EdFiEducationOrganizationReference educationOrganizationReference
+    test('to test the property `educationOrganizationReference`', () async {
+      // TODO
+    });
+
+    // An unordered collection of interventionAppropriateGradeLevels. Grade levels for the intervention. If omitted, considered generally applicable.
+    // List<EdFiInterventionAppropriateGradeLevel> appropriateGradeLevels (default value: const [])
+    test('to test the property `appropriateGradeLevels`', () async {
+      // TODO
+    });
+
+    // An unordered collection of interventionAppropriateSexes. Sexes for the intervention. If omitted, considered generally applicable.
+    // List<EdFiInterventionAppropriateSex> appropriateSexes (default value: const [])
+    test('to test the property `appropriateSexes`', () async {
+      // TODO
+    });
+
+    // The start date for the intervention implementation.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.
+    // DateTime beginDate
+    test('to test the property `beginDate`', () async {
+      // TODO
+    });
+
+    // The way in which an intervention was implemented.
+    // String deliveryMethodDescriptor
+    test('to test the property `deliveryMethodDescriptor`', () async {
+      // TODO
+    });
+
+    // An unordered collection of interventionDiagnoses. Targeted purpose of the intervention.
+    // List<EdFiInterventionDiagnosis> diagnoses (default value: const [])
+    test('to test the property `diagnoses`', () async {
+      // TODO
+    });
+
+    // An unordered collection of interventionEducationContents. Relates the education content source to the education content.
+    // List<EdFiInterventionEducationContent> educationContents (default value: const [])
+    test('to test the property `educationContents`', () async {
+      // TODO
+    });
+
+    // The end date for the intervention implementation.  Note: Date interpretation may vary. Ed-Fi recommends inclusive dates, but states may define dates as inclusive or exclusive. For calculations, align with local guidelines.
+    // DateTime endDate
+    test('to test the property `endDate`', () async {
+      // TODO
+    });
+
+    // The way in which an intervention is used: curriculum, supplement, or practice.
+    // String interventionClassDescriptor
+    test('to test the property `interventionClassDescriptor`', () async {
+      // TODO
+    });
+
+    // An unordered collection of interventionInterventionPrescriptions. The reference to the intervention prescription being followed in this intervention implementation.
+    // List<EdFiInterventionInterventionPrescription> interventionPrescriptions (default value: const [])
+    test('to test the property `interventionPrescriptions`', () async {
+      // TODO
+    });
+
+    // An unordered collection of interventionLearningResourceMetadataURIs. The URI (typical a URL) pointing to the metadata entry in a LRMI metadata repository, which describes this content item.
+    // List<EdFiInterventionLearningResourceMetadataURI> learningResourceMetadataURIs (default value: const [])
+    test('to test the property `learningResourceMetadataURIs`', () async {
+      // TODO
+    });
+
+    // The maximum duration of time in minutes that may be assigned for the intervention.
+    // int maxDosage
+    test('to test the property `maxDosage`', () async {
+      // TODO
+    });
+
+    // An unordered collection of interventionMeetingTimes. The times at which this intervention is scheduled to meet.
+    // List<EdFiInterventionMeetingTime> meetingTimes (default value: const [])
+    test('to test the property `meetingTimes`', () async {
+      // TODO
+    });
+
+    // The minimum duration of time in minutes that may be assigned for the intervention.
+    // int minDosage
+    test('to test the property `minDosage`', () async {
+      // TODO
+    });
+
+    // Namespace for the intervention.
+    // String namespace
+    test('to test the property `namespace`', () async {
+      // TODO
+    });
+
+    // An unordered collection of interventionPopulationServeds. A subset of students that are the focus of the intervention.
+    // List<EdFiInterventionPopulationServed> populationServeds (default value: const [])
+    test('to test the property `populationServeds`', () async {
+      // TODO
+    });
+
+    // An unordered collection of interventionStaffs. Relates the staff member associated with the Intervention.
+    // List<EdFiInterventionStaff> staffs (default value: const [])
+    test('to test the property `staffs`', () async {
+      // TODO
+    });
+
+    // An unordered collection of interventionURIs. The URI (typical a URL) pointing to an education content item.
+    // List<EdFiInterventionURI> uris (default value: const [])
+    test('to test the property `uris`', () async {
+      // TODO
+    });
+
+    // A unique system-generated value that identifies the version of the resource.
+    // String etag
+    test('to test the property `etag`', () async {
+      // TODO
+    });
+
+    // The date and time the resource was last modified.
+    // DateTime lastModifiedDate
+    test('to test the property `lastModifiedDate`', () async {
+      // TODO
+    });
+
+
+  });
+
+}
